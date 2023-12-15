@@ -1,5 +1,8 @@
-import { init as carouselInit } from "./js/carousel.js";
+// imoport Carousel from "./js/carousel.js";
+import { Carousel } from "./js/carousel.js";
 
-console.log("Start");
+const carousel = new Carousel();
+carousel.init();
 
-carouselInit();
+const carousel2 = new Carousel();
+carousel2.init();
