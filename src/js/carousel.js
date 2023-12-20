@@ -1,5 +1,20 @@
 let currentSlide = 0;
 
+/**
+ * ES6
+ class Carousel {
+
+ }
+
+ function Human(name, surname) {
+  this.name = name;
+  this.surname = surname;
+ }
+
+ const kristijan = new Human('Kristijan', 'Kostadinov');
+ const marko = new Human('Marko', 'Markovski');
+ const marija = new Human('Marija', 'Markovska');
+ */
 function Carousel(mountingElement) {
   this.mountingElement = mountingElement;
   this.totalSlides = this.mountingElement.querySelectorAll(".slide").length;
