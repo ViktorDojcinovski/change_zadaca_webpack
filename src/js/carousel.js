@@ -1,23 +1,13 @@
 let currentSlide = 0;
 
-/**
- * ES6
- class Carousel {
-
- }
-
- function Human(name, surname) {
-  this.name = name;
-  this.surname = surname;
- }
-
- const kristijan = new Human('Kristijan', 'Kostadinov');
- const marko = new Human('Marko', 'Markovski');
- const marija = new Human('Marija', 'Markovska');
- */
-function Carousel(mountingElement) {
+function SimpleCarousel(mountingElement) {
   this.mountingElement = mountingElement;
   this.totalSlides = this.mountingElement.querySelectorAll(".slide").length;
+}
+
+function Carousel(mountingElement, fullWidth = true) {
+  SimpleCarousel.call(this, mountingElement);
+  this.fullWidth = fullWidth;
 }
 
 Carousel.prototype.showSlide = function (index) {
@@ -38,6 +28,9 @@ Carousel.prototype.changeSlide = function (direction) {
 
 Carousel.prototype.updatePagination = function () {
   this.pagination.innerHTML = "";
+  if (this.fullWidth) {
+    this.mountingElement.parentElement.classList.add("alteringClass");
+  }
 
   for (let i = 0; i < this.totalSlides; i++) {
     const dot = document.createElement("span");
